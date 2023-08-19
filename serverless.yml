@@ -1,0 +1,20 @@
+# serverless.yml
+service: renalizapp-2023
+package:
+  patterns:
+   - '!node_modules/**'
+  excludeDevDependencies: true
+provider:
+  name: google
+  project: renalizapp-2023
+  labels:
+    application: renalizapp-api
+plugins:
+  - serverless-google-cloudfunctions
+functions:
+  first:
+    handler: http
+    events:
+    - http: path
+    labels:
+      team: gcf-team
