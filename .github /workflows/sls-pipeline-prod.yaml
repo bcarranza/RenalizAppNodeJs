@@ -1,0 +1,31 @@
+name: sls-pipeline-prod
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  Deploy_to_GCP_SLS:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+      
+      - name: Validate Serverless template
+        uses: serverless/github-action@v3.2
+        with:
+          args: package
+        env:
+          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+
+      - name: Deploy GCP Cloud Function
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: serverless/github-action@v3.2
+        with:
+          args: deploy
+        env:
+          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
