@@ -1,4 +1,5 @@
 name: sls-pipeline-prod
+on: push
 
 #on:
 #  push:
