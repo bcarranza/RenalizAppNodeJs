@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - serverless-gcloud-functions
   pull_request:
     branches:
       - main
+      - serverless-gcloud-functions
 
 jobs:
   Deploy_to_GCP_SLS:
