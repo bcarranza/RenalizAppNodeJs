@@ -6,7 +6,7 @@ package:
   excludeDevDependencies: true
 provider:
   name: google
-  project: ${self:custom.stageVariables.project}
+  project: ${self:custom.stageVariables.${self:provider.stage}.project}
   credentials: ${env:CREDENTIALS_PATH}
   labels:
     application: renalizapp-api
