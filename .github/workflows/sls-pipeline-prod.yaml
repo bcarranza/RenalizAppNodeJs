@@ -18,15 +18,14 @@ jobs:
         run: ./.github/scripts/decrypt_secret.sh
         env:
           SECRET_PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}    
-      #- name: Deploy GCP Cloud Function
-      #  uses: serverless/github-action@master
-      #  with:
-      #    args: -C "serverless plugin install --name serverless-google-cloudfunctions && serverless package"
-      #    entrypoint: /bin/sh
-      #  env:
-      #    CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json   
+      - name: Validate GCP Cloud Function
+        uses: serverless/github-action@master
+        with:
+          args: package
+        env:
+          CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
       - name: Deploy GCP Cloud Function
-        #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: serverless/github-action@master
         with:
           args: deploy
