@@ -8,29 +8,58 @@ on:
       - main
 
 jobs:
-  Deploy_to_GCP_SLS:
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@master
-      
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20.x
+      deploy:
+        name: deploy
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@master
+        - name: npm install
+          run: npm install
+        - name: Decrypt secret
+          run: ./.github/scripts/decrypt_secret.sh
+          env:
+            SECRET_PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}
+        
+        - name: Deploy GCP Cloud Function
+          uses: serverless/github-action@master
+          with:
+            args: -C "serverless plugin install --name serverless-google-cloudfunctions && serverless package"
+            entrypoint: /bin/sh
+          env:
+            CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
+        
+        - name: Deploy GCP Cloud Function
+          if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+          uses: serverless/github-action@master
+          with:
+            args: deploy
+          env:
+            CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
 
-      - name: Validate Serverless Template
-        uses: serverless/github-action@v3.2
-        with:
-          args: -C "serverless plugin install --name serverless-google-cloudfunctions && serverless package"
-          entrypoint: /bin/sh
-        env:
-          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
-
-      - name: Deploy GCP Cloud Function
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: serverless/github-action@v3.2
-        with:
-          args: deploy
-        env:
-          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+#jobs:
+#  Deploy_to_GCP_SLS:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: "Checkout"
+#        uses: actions/checkout@master
+#      
+#      - name: Use Node.js ${{ matrix.node-version }}
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: 20.x
+#
+#      - name: Validate Serverless Template
+#        uses: serverless/github-action@v3.2
+#        with:
+#          args: -C "serverless plugin install --name serverless-google-cloudfunctions && serverless package"
+#          entrypoint: /bin/sh
+#        env:
+#          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+#
+#      - name: Deploy GCP Cloud Function
+#        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+#        uses: serverless/github-action@master
+#        with:
+#          args: deploy
+#        env:
+#          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
