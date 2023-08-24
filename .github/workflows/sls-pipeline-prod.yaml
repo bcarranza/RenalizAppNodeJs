@@ -21,13 +21,13 @@ jobs:
       - name: Validate GCP Cloud Function
         uses: serverless/github-action@master
         with:
-          args: package
+          args: package --stage prod
         env:
           CREDENTIALS_PATH: /github/workspace/secrets/keyfile_dev.json
       - name: Deploy GCP Cloud Function
         #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: serverless/github-action@master
         with:
-          args: deploy
+          args: deploy --stage prod
         env:
           CREDENTIALS_PATH: /github/workspace/secrets/keyfile_prod.json
