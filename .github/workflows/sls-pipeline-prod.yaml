@@ -6,35 +6,35 @@ on:
   pull_request:
     branches:
       - main
-
 jobs:
-      deploy:
-        name: deploy
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@master
-        - name: npm install
-          run: npm install
-        - name: Decrypt secret
-          run: ./.github/scripts/decrypt_secret.sh
-          env:
-            SECRET_PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: npm install
+      run: npm install
+    - name: Decrypt secret
+      run: ./.github/scripts/decrypt_secret.sh
+      env:
+        SECRET_PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}
         
-        - name: Deploy GCP Cloud Function
-          uses: serverless/github-action@master
-          with:
-            args: -C "serverless plugin install --name serverless-google-cloudfunctions && serverless package"
-            entrypoint: /bin/sh
-          env:
-            CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
+    - name: Deploy GCP Cloud Function
+      uses: serverless/github-action@master
+      with:
+        args: -C "serverless plugin install --name serverless-google-cloudfunctions && serverless package"
+        entrypoint: /bin/sh
+      env:
+        CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
         
-        - name: Deploy GCP Cloud Function
-          if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-          uses: serverless/github-action@master
-          with:
-            args: deploy
-          env:
-            CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
+    - name: Deploy GCP Cloud Function
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: serverless/github-action@master
+      with:
+        args: deploy
+      env:
+        CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
+        
 
 #jobs:
 #  Deploy_to_GCP_SLS:
