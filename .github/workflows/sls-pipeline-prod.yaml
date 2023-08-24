@@ -18,8 +18,6 @@ jobs:
         run: ./.github/scripts/decrypt_secret.sh
         env:
           SECRET_PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}    
-      - name: Set Google Cloud Project ID
-        run: gcloud config set project renalizapp-2023
       #- name: Deploy GCP Cloud Function
       #  uses: serverless/github-action@master
       #  with:
