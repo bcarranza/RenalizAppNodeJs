@@ -18,6 +18,10 @@ jobs:
         run: ./.github/scripts/decrypt_secret.sh
         env:
           SECRET_PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}    
+      - name: Set Google Cloud Project ID
+        run: gcloud config set project YOUR_PROJECT_ID
+        env:
+          YOUR_PROJECT_ID: renalizapp-2023
       #- name: Deploy GCP Cloud Function
       #  uses: serverless/github-action@master
       #  with:
@@ -29,7 +33,6 @@ jobs:
         #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: serverless/github-action@master
         with:
-          args: -C "gcloud config set project renalizapp-dev-2023 && serverless deploy"
-          entrypoint: /bin/sh
+          args: deploy
         env:
           CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
