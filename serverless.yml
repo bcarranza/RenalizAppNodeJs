@@ -6,7 +6,7 @@ custom:
   myEnvironment:
     project:
       prod: "renalizapp-2023"
-      dev: "renalizapp-dev-2023"
+      dev: "renalizapp-dev-2023-396503"
 
 package:
   patterns:
