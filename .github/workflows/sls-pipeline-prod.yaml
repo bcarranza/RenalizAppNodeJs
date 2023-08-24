@@ -29,6 +29,7 @@ jobs:
         #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: serverless/github-action@master
         with:
-          args: deploy
+          args: -C "gcloud config set project renalizapp-dev-2023 && serverless deploy"
+          entrypoint: /bin/sh
         env:
           CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
