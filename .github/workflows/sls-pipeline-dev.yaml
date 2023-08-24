@@ -3,9 +3,11 @@ on:
   push:
     branches:
       - develop
+      - master
   pull_request:
     branches:
       - develop
+      - master
 
 jobs:
   Deploy_to_GCP_SLS:
@@ -25,7 +27,7 @@ jobs:
         env:
           CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
       - name: Deploy GCP Cloud Function
-        if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+        #if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
         uses: serverless/github-action@master
         with:
           args: deploy

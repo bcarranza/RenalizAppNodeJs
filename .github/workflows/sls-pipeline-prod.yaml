@@ -25,7 +25,7 @@ jobs:
         env:
           CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
       - name: Deploy GCP Cloud Function
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: serverless/github-action@master
         with:
           args: deploy
