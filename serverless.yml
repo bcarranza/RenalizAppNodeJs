@@ -6,16 +6,22 @@ package:
   excludeDevDependencies: true
 provider:
   name: google
-  project: renalizapp-2023
+  project: ${self:custom.stageVariables.project}
   credentials: ${env:CREDENTIALS_PATH}
   labels:
     application: renalizapp-api
 plugins:
   - serverless-google-cloudfunctions
+custom:
+  stageVariables:
+    prod:
+      project: renalizapp-2023 
+    dev:
+      project: renalizapp-dev-2023
 functions:
   first:
     handler: http
     events:
-    - http: path
+      - http: path
     labels:
       team: gcf-team

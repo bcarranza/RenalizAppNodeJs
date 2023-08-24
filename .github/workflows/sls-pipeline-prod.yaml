@@ -23,7 +23,7 @@ jobs:
         with:
           args: package
         env:
-          CREDENTIALS_PATH: /github/workspace/secrets/keyfile.json
+          CREDENTIALS_PATH: /github/workspace/secrets/keyfile_dev.json
       - name: Deploy GCP Cloud Function
         #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: serverless/github-action@master
