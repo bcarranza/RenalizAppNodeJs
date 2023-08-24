@@ -3,11 +3,11 @@ on:
   push:
     branches:
       - develop
-      - master
+      - main
   pull_request:
     branches:
       - develop
-      - master
+      - main
 
 jobs:
   Deploy_to_GCP_SLS:
