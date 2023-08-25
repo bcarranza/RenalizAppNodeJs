@@ -1,4 +1,3 @@
-# serverless.yml
 service: renalizapp-2023
 
 custom:
@@ -10,19 +9,23 @@ custom:
 
 package:
   patterns:
-   - '!node_modules/**'
+    - '!node_modules/**'
   excludeDevDependencies: true
+
 provider:
   name: google
+  stage: ${opt:stage, 'dev'}
   project: ${self:custom.myEnvironment.project.${self:custom.myStage}}
   credentials: ${env:CREDENTIALS_PATH}
   labels:
     application: renalizapp-api
+
 plugins:
   - serverless-google-cloudfunctions
+
 functions:
-  first:
-    handler: http
+  getAllBlogs:
+    handler: getAllBlogs
     events:
       - http: path
     labels:
