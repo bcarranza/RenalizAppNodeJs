@@ -1,11 +1,11 @@
-name: sls-pipeline-prod
+name: sls-pipeline-dev
 on:
   push:
     branches:
-      - main
+      - develop
   pull_request:
     branches:
-      - main
+      - develop
 
 jobs:
   Deploy_to_GCP_SLS:
@@ -15,19 +15,19 @@ jobs:
       - name: npm install
         run: npm install
       - name: Decrypt secret
-        run: ./.github/scripts/decrypt_secret_prod.sh
+        run: ./.github/scripts/decrypt_secret_dev.sh
         env:
           SECRET_PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}    
       - name: Validate GCP Cloud Function
         uses: serverless/github-action@master
         with:
-          args: package --stage prod
+          args: package --stage dev
         env:
           CREDENTIALS_PATH: /github/workspace/secrets/keyfile_dev.json
       - name: Deploy GCP Cloud Function
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
         uses: serverless/github-action@master
         with:
-          args: deploy --stage prod
+          args: deploy --stage dev
         env:
-          CREDENTIALS_PATH: /github/workspace/secrets/keyfile_prod.json
+          CREDENTIALS_PATH: /github/workspace/secrets/keyfile_dev.json

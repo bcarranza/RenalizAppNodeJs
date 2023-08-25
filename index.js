@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const functions = require('firebase-functions');
 const express = require('express');
 const app = express();
@@ -26,3 +27,8 @@ exports.http = functions.https.onRequest(async (request, response) => {
     response.status(500).send('Error interno del servidor');
   }
 });
+=======
+exports.http = (request, response) =>{
+    response.status(200).send('Hello World from GCP!');
+};
+>>>>>>> b414be0ba27e8e4af01de3d464a52d00a75f4019
