@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "renalizapp-dev-2023",
+    "private_key_id": "8b74d3aa69f1fd2faa3d469b1c3f71a7c123aaea",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDRFcihykjCNla5\n3UikYkOEXtZhzyvuKZUg6aNt26WZUlec/cgankDGEgDzzcpZNnnQSA9VXLjZp3eY\njvylaPZzlIKV56gKdDYDjO9xB6SXOkfr13NVIlrAipQF+ZKnL1nxvYa7Jghcw69L\nac2xFQ4E3ofvTli2TPgLz5YYMV67D5R1TVRbvqI8BIxAUA1AdYg057N4X5Eh4IK3\nt97ZCXGSSKuPW4+2UIqp9IDtfpyQoVtUEPdcs1T0IzJ6KBPh3KxkSZzJ1mX6XUkd\nXarHG3DZo/xI2MWVkDffbjBJ//2VSXEdvNXe9YXI+N7h72qMYIx9YnxjZobj/oQl\nZPOqfyS5AgMBAAECggEAYIEmdo6wYHvGMcmSItV8BlfjqYd+5lFpFKTiGu27lHXu\nHHcCak7K5OEgcWd10xGSzfDEqwi+BTAHwnGU6R/2SMiuMVSYOiMDX0Yoqkn1zRtI\nYPGzuQK/Uolj4xIbf3Eambp5ul3GlFJ50VwHZYmrS9IOegT2a0ZBYuowhAAdkka7\n9Lhd/INHqOYLjiv/70Tyyd8i2O6DSfZoK9+ER8DY1h7wG0FmaoApG/ZyNyvTYuC2\nVrp2pTb2CKSEu9993LwN0rzgyhRLvIf0d77BuajwO9XmQY08r6/ehdDOZOltuQoB\nDiz5SxeCCaYZO7+9+zB3vN+Fr3zhk+c0g8DY1fQAxQKBgQDvTVue1+6lJPPG5I2/\nkXPzk+H5gJYeJ6MASPcSRrprxBxEV7fYGUnpGy7Z0/5XzdErLtS75B8mzfsG5CQt\nkt8sRYC8U8xi5U8OF8ZQa82N0Hdm7I8sAmUNaD6Z3GCNXU6o4iwPaoStg8tOTlmA\nEU1ln+j/NjGxP7GgEUSTGm0+EwKBgQDfrKjcet+Iq5qL0xNNgxeZ3oHh4RglQcXb\nce3udJf8h7QFtDhqoCCBjJv6ndrepdoJiqRGPSEDL2+uIDcwLlLLlDRAhHwhQS9L\nvS3bR6ONGFbBFeD+fUltmPNpy9gIvIw6X3LjWOdRiVjWaCC61Yqb482Be/WHstVU\nTtlKbM47gwKBgFlAVeqhiK1pYc6NkdygKEnxnveKoPKwP9gsXpIfdQoag5xtxvC/\nRdS+QbQWoCcpaVkcx1UomQHFE1oXnvKsc7Y0WfZjnrhH5DtSXLHD809wMAhgNGnq\nnrvoZGjIS+6NnXfZmytIxCFfJWWYTUM5sM81XBZLpS8BnYMgzZ273oCnAoGBAK5Y\n21bgwBS8Dj8nTEiDAoaBliQHXNbNqfgfmiLg5weEj6JSlBcosa3JeFulZ9Fc3dPK\nKbpGM9FTzG2h1uLLeOYOo5wWqNsTAFa9I11lPerhKd5fu30jE3VGX5X7um006ukl\nNVxZFBXORVz61WhMwzo4GxvvD7eyge6xd1Y38ZkZAoGAQDTFgq2q91WZDXSOPj1C\nmr1gP6Mc77sK7gpov4cJNEB3JiEy9zavWcIk6Gyc6obqCwc+XEhefy/UQJwzGu8K\ngdvPNO11QQXind4FZVGjSFTNUVSJYNObuP7EO0zr6wbYIJCD+DHe/olWGznMlHf4\nXP38k4qiaaT7PRf/cIFj6f4=\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-hya3e@renalizapp-dev-2023.iam.gserviceaccount.com",
+    "client_id": "107427695358506972495",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-hya3e%40renalizapp-dev-2023.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }
