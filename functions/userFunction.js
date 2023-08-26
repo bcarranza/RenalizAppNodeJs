@@ -27,4 +27,4 @@ exports.createUser = async (request, response) => {
         console.error('Error creating user:', error);
         response.status(500).send('Internal Server Error');
     }
-}; 
+};  
