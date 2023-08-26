@@ -27,3 +27,9 @@ functions:
       - http: path
     labels:
       team: gcf-team
+  createUser:
+    handler: user.create
+    events:
+      - http: 'POST /users'
+    labels:
+      team: backend-team

@@ -1,3 +1,3 @@
-exports.http = (request, response) =>{
-    response.status(200).send('Hello World from GCP!');
-};
+const userFunction = require("./functions/userFunction");
+
+exports.createUser = userFunction.createUser
