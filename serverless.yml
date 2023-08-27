@@ -13,6 +13,7 @@ package:
    - '!node_modules/**'
   excludeDevDependencies: true
 provider:
+  stage: ${opt:stage, 'dev'}
   name: google
   project: ${self:custom.myEnvironment.project.${self:custom.myStage}}
   credentials: ${env:CREDENTIALS_PATH}
@@ -21,14 +22,8 @@ provider:
 plugins:
   - serverless-google-cloudfunctions
 functions:
-  first:
-    handler: http
-    events:
-      - http: path
-    labels:
-      team: gcf-team
   createUser:
-    handler: user.create
+    handler: createUser
     events:
       - http: 'POST /users'
     labels:
