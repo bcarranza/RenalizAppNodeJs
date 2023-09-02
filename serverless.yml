@@ -14,6 +14,7 @@ package:
 
 provider:
   name: google
+  runtime: nodejs16
   stage: ${opt:stage, 'dev'}
   project: ${self:custom.myEnvironment.project.${self:custom.myStage}}
   credentials: ${env:CREDENTIALS_PATH}
@@ -30,3 +31,4 @@ functions:
       - http: path
     labels:
       team: gcf-team
+
