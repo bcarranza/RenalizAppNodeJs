@@ -31,4 +31,18 @@ functions:
       - http: path
     labels:
       team: gcf-team
+   getTestById:
+    handler: getTestById
+    events:
+      - http:
+          path: test/{id}
+          method: get
+    labels:
+      team: gcf-team
+      postTestResults:  
+    handler: postTestResults
+    events:
+      - http: path
+    labels:
+      team: gcf-team
 
