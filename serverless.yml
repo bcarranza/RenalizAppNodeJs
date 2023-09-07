@@ -28,24 +28,19 @@ functions:
   getAllBlogs:
     handler: getAllBlogs
     events:
-      - http:
-          path: path
-          method: get
+      - http: path
     labels:
       team: gcf-team
   getTestById:
     handler: getTestById
     events:
-      - http:
-          path: id
-          method: get
+      - http: id
     labels:
       team: gcf-team
   postTestResults:
     handler: postTestResults
     events:
-      - http:
-          path: testresults
-          method: post
+      - http: testresults
     labels:
       team: gcf-team
+
