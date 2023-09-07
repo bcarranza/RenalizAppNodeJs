@@ -5,8 +5,13 @@ exports.getTests = async (request, response) => {
         const db = admin.firestore();
         const testCollection = db.collection('Tests');
         
-        // Obteniendo el ID desde los parámetros de la URL
-        const testId = request.params.id;
+        // Obteniendo el ID desde el cuerpo de la solicitud JSON
+        const testId = request.body.id;
+        if (!testId) {
+            response.status(400).send('ID is required in the request body');
+            return;
+        }
+
         const doc = await testCollection.doc(testId).get();
 
         if (!doc.exists) {
