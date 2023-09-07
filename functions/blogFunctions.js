@@ -1,5 +1,4 @@
-const admin = require('firebase-admin');
-admin.initializeApp();
+const admin = require('../database/firebase.js');
 
 exports.getAllBlogs = async (request, response) => {
     try {
