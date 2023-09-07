@@ -34,7 +34,7 @@ functions:
   getTestById:
     handler: getTestById
     events:
-      - http: test/{id}
+      - http: {id}
     labels:
       team: gcf-team
   postTestResults:
