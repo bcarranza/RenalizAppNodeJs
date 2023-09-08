@@ -5,14 +5,25 @@ exports.getAllBlogs = async (request, response) => {
         const db = admin.firestore();
         const blogCollection = db.collection('Blog');
         
-        const snapshot = await blogCollection.get();
-        const blogData = [];
+        let query = blogCollection;
         
+        if (request.query && request.query.nextPageToken) {
+
+            query = query.startAfter(request.query.nextPageToken);
+        }
+
+        const snapshot = await query.limit(10).get(); 
+        const blogData = [];
+
         snapshot.forEach((doc) => {
             blogData.push(doc.data());
         });
+
         
-        response.status(200).json(blogData);
+        const lastVisible = snapshot.docs[snapshot.docs.length - 1];
+        const nextPageToken = lastVisible ? lastVisible.id : null;
+
+        response.status(200).json({ blogData, nextPageToken });
     } catch (error) {
         console.error('Error fetching blog data:', error);
         response.status(500).send('Internal Server Error');
