@@ -29,9 +29,7 @@ functions:
   getAllBlogs:
     handler: getAllBlogs
     events:
-      - http: GET /
-    labels:
-      team: gcf-team
+      - http: GET /{proxy+}
   getTestById:
     handler: getTestById
     events:
