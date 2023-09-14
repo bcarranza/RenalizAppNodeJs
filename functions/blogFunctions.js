@@ -1,31 +1,26 @@
 const admin = require('../database/firebase.js');
 
-exports.getAllBlogs = async (request, response) => {
+exports.getAllBlogs = async (req, res) => {
     try {
         const db = admin.firestore();
-        const blogCollection = db.collection('Blog');
         
-        let query = blogCollection;
+        const query = db.collection('Blog');
+
+        let page = req.page || 1;
+        let perPage = req.appperPage || 10;
+
+        const snapshot = await query.limit(perPage).get();
         
-        if (request.query && request.query.nextPageToken) {
+        const blogData = snapshot.docs.map((doc) => doc.data());
 
-            query = query.startAfter(request.query.nextPageToken);
-        }
-
-        const snapshot = await query.limit(10).get(); 
-        const blogData = [];
-
-        snapshot.forEach((doc) => {
-            blogData.push(doc.data());
-        });
-
+        console.log(blogData);
         
-        const lastVisible = snapshot.docs[snapshot.docs.length - 1];
-        const nextPageToken = lastVisible ? lastVisible.id : null;
+        res.status(200).json({ blogData });
 
-        response.status(200).json({ blogData, nextPageToken });
     } catch (error) {
         console.error('Error fetching blog data:', error);
         response.status(500).send('Internal Server Error');
     }
 };
+
+
