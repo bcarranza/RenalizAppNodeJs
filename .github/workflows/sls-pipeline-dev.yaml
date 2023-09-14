@@ -30,7 +30,7 @@ jobs:
       - name: Serverless Doctor
         uses: serverless/github-action@master
         with:
-          args: doctor --stage dev
+          args: doctor
         env:
           CREDENTIALS_PATH: /github/workspace/secrets/keyfile_dev.json
       - name: Deploy GCP Cloud Function
