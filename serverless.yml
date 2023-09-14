@@ -33,13 +33,13 @@ functions:
   getTestById:
     handler: getTestById
     events:
-      - http: GET /
+      - http: true
     labels:
       team: gcf-team
   postTestResults:
     handler: postTestResults
     events:
-      - http: POST /
+      - http: true
     labels:
       team: gcf-team
 
