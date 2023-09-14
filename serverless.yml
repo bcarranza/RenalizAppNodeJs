@@ -28,9 +28,7 @@ functions:
   getAllBlogs:
     handler: getAllBlogs
     events:
-      - http:
-          path: /getAllBlogs
-          method: get
+      - http: get
     labels:
       team: gcf-team
   getTestById:
