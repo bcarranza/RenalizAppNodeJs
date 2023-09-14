@@ -29,7 +29,7 @@ functions:
   getAllBlogs:
     handler: getAllBlogs
     events:
-      - http: GET /{proxy+}
+      - http: true
   getTestById:
     handler: getTestById
     events:
