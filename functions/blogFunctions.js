@@ -6,16 +6,16 @@ exports.getAllBlogs = async (req, res) => {
         
         const query = db.collection('Blog');
 
-        let page = req.page || 1;
-        let perPage = req.appperPage || 10;
+        //let page = req.page || 1;
+        //let perPage = req.appperPage || 10;
 
-        const snapshot = await query.limit(perPage).get();
+        //const snapshot = await query.limit(perPage).get();
         
-        const blogData = snapshot.docs.map((doc) => doc.data());
+        //const blogData = snapshot.docs.map((doc) => doc.data());
 
-        console.log(blogData);
+        //console.log(blogData);
         
-        res.status(200).json({ blogData });
+        //res.status(200).json({ blogData });
 
     } catch (error) {
         console.error('Error fetching blog data:', error);
