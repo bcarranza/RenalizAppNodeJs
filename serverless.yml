@@ -24,22 +24,30 @@ provider:
 plugins:
   - serverless-google-cloudfunctions
 
-# http: Valid values: "ANY /", "GET /", "POST /", "PUT /", "PATCH /", "OPTIONS /", "HEAD /", "DELETE /"
 functions:
+  uploadBlogs:
+    handler: uploadBlogs
+    events:
+      - http:
+          path
   getAllBlogs:
     handler: getAllBlogs
     events:
-      - http: true
+      - http: 
+          path: /getAllBlogs
+          method: get
+    labels:
+      team: gcf-team
   getTestById:
     handler: getTestById
     events:
-      - http: true
+      - http: id
     labels:
       team: gcf-team
   postTestResults:
     handler: postTestResults
     events:
-      - http: true
+      - http: testresults
     labels:
       team: gcf-team
 
