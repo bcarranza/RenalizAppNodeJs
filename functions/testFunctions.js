@@ -1,4 +1,5 @@
 const admin = require('../database/firebase.js');
+
 const cors = require('cors');
 const corsHandler = cors({ origin: true });
 
@@ -46,4 +47,5 @@ exports.postTestResults = async (request, response) => {
             response.status(500).send('Internal Server Error');
         }
     });
+
 };
