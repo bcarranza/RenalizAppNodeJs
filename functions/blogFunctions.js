@@ -5,7 +5,7 @@ exports.getAllBlogs = async (request, response) => {
     response.set('Access-Control-Allow-Origin', '*');
 
     if (request.method === 'OPTIONS') {
-        response.set('Access-Control-Allow-Methods', 'GET');
+        response.set('Access-Control-Allow-Methods', 'POST');
         response.set('Access-Control-Allow-Headers', 'Content-Type');
         response.set('Access-Control-Max-Age', '3600');
         response.status(204).send('');
