@@ -6,13 +6,13 @@ exports.getAllBlogs = async (request, response) => {
 
     if (request.method === 'OPTIONS') {
         response.set('Access-Control-Allow-Methods', 'POST');
-        response.set('Access-Control-Allow-Headers', 'Content-Type');
+        response.set('Access-Control-Allow-Headers', 'Content-Type , Authorization');
         response.set('Access-Control-Max-Age', '3600');
         response.status(204).send('');
         return;
     }
-
-    try {
+    else{
+         try {
         const db = admin.firestore();
         const blogCollection = db.collection('Blog');
             
@@ -27,5 +27,6 @@ exports.getAllBlogs = async (request, response) => {
     } catch (error) {
         console.error('Error fetching blog data:', error);
         response.status(500).send('Internal Server Error');
+    }
     }
 };
