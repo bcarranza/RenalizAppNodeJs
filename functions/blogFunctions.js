@@ -6,8 +6,8 @@ exports.getAllBlogs = async (req, res) => {
 
     const query = db.collection("Blogs");
 
-    //let page = req.page || 1;
-    let perPage = req.appperPage || 2;
+    let page = req.page || 1;
+    let perPage = req.appperPage || 4;
     let token = req.token || null;
 
     if (token) {
