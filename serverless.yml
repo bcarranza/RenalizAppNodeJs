@@ -25,22 +25,26 @@ plugins:
   - serverless-google-cloudfunctions
 
 functions:
+  uploadBlogs:
+    handler: uploadBlogs
+    events:
+      - http: true
   getAllBlogs:
     handler: getAllBlogs
     events:
-      - http: path
+      - http: true
     labels:
       team: gcf-team
   getTestById:
     handler: getTestById
     events:
-      - http: id
+      - http: true
     labels:
       team: gcf-team
   postTestResults:
     handler: postTestResults
     events:
-      - http: testresults
+      - http: true
     labels:
       team: gcf-team
 
