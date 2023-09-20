@@ -1,5 +1,5 @@
 
-const admin = require('../database/firebase.js');//change it to the firebase correct db if any
+const admin = require('../database/firebase.js');//change it to the firebase correct db 
 
 
 const serviceAccount = require('./your-firebase-service-account-key.json'); // replace with your Firebase service account key file
