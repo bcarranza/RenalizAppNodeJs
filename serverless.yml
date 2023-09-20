@@ -28,26 +28,23 @@ functions:
   uploadBlogs:
     handler: uploadBlogs
     events:
-      - http:
-          path
+      - http: true
   getAllBlogs:
     handler: getAllBlogs
     events:
-      - http: 
-          path: /getAllBlogs
-          method: get
+      - http: true
     labels:
       team: gcf-team
   getTestById:
     handler: getTestById
     events:
-      - http: id
+      - http: true
     labels:
       team: gcf-team
   postTestResults:
     handler: postTestResults
     events:
-      - http: testresults
+      - http: true
     labels:
       team: gcf-team
 
