@@ -1,4 +1,4 @@
-/*const admin = require('../database/firebase.js');
+const admin = require('../database/firebase.js');
 const cors = require('cors');
 const corsHandler = cors({ origin: true });
 
@@ -31,7 +31,7 @@ exports.postRegister = async (request, response) => {
       response.status(500).json({ message: 'Error en el registro' });
     }
   });
-};*/
+};/*
 const admin = require('../database/firebase.js');
 const cors = require('cors');
 const corsHandler = cors({ origin: true });
@@ -72,4 +72,4 @@ exports.postRegister = async (request, response) => {
     }
   });
 };
-
+*/
