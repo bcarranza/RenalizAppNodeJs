@@ -47,4 +47,10 @@ functions:
       - http: true
     labels:
       team: gcf-team
+  postRegister:
+    handler: postRegister
+    events:
+      - http: true
+    labels:
+      team: gcf-team
 
