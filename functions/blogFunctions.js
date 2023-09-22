@@ -30,12 +30,16 @@ exports.getAllBlogs = async (request, response) => {
       .limit(perPage)
       .get();
 
-    //   let req = JSON.stringify(request);
-      console.log("🚀 ~ file: blogFunctions.js:34 ~ exports.getAllBlogs= ~ req:", request)
+    const count = await admin.firestore().collection('Blogs').count().get();
 
     response
       .status(200)
-      .json({ "response": snapshot.docs.map((doc) => doc.data())});
+      .json({
+        data: snapshot.docs.map((doc) => doc.data()),
+        page,
+        perPage,
+        allItems: count['_data']['count']
+      });
   } catch (error) {
     console.error("Error fetching blog data:", error);
     response.status(500).send("Internal Server Error");
