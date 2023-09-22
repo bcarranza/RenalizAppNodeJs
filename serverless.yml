@@ -41,6 +41,12 @@ functions:
     handler: postTestResults
     events:
       - http: testresults
+  postRegister:
+    handler: postRegister
+    events:
+      - http: RegistroUsuarios
+    
+
     labels:
       team: gcf-team
 

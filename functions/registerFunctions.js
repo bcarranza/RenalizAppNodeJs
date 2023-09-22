@@ -1,5 +1,5 @@
 
-const admin = require('../database/firebase.js');//change it to the firebase correct db 
+/*const admin = require('../database/firebase.js');//change it to the firebase correct db 
 
 
 const serviceAccount = require('./your-firebase-service-account-key.json'); // replace with your Firebase service account key file
@@ -40,5 +40,36 @@ exports.postRegister = async (request, response) => {
     console.error(error);
     res.status(500).json({ message: 'Registration failed' });
   }
-};
+};*/
+const admin = require('../database/firebase.js');
+const cors = require('cors');
+const corsHandler = cors({ origin: true });
 
+exports.postRegister = async (request, response) => {
+  corsHandler(request, response, async () => {
+    try {
+      const db = admin.firestore();
+      const RegistroUsuariosCollection = db.collection('RegistroUsuarios');
+
+      const resultData = request.body;
+
+  
+      const { name, dob, address, phoneNumber } = request.body;
+
+    
+      const userData = {
+        name,
+        dob,
+        address,
+        phoneNumber,
+      };
+
+      await RegistroUsuariosCollection.add(resultData);
+
+      response.status(201).json({ message: 'Usuario registrado exitosamente', user: userData });
+    } catch (error) {
+      console.error(error);
+      response.status(500).json({ message: 'Error en el registro' });
+    }
+  });
+};
