@@ -50,7 +50,6 @@ functions:
   postRegister:
     handler: postRegister
     events:
-      - http: RegistroUsuarios
       - http: true
     labels:
       team: gcf-team
