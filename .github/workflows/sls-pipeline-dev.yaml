@@ -9,9 +9,12 @@ on:
 
 jobs:
   Deploy_to_GCP_SLS:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - name: npm install
         run: npm install
       - name: Decrypt secret
@@ -24,8 +27,14 @@ jobs:
           args: package --stage dev
         env:
           CREDENTIALS_PATH: /github/workspace/secrets/keyfile_dev.json
+      - name: Serverless Doctor
+        uses: serverless/github-action@master
+        with:
+          args: doctor
+        env:
+          CREDENTIALS_PATH: /github/workspace/secrets/keyfile_dev.json
       - name: Deploy GCP Cloud Function
-        if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+        #if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
         uses: serverless/github-action@master
         with:
           args: deploy --stage dev
