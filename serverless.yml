@@ -51,11 +51,13 @@ functions:
     handler: postRegister
     events:
       - http: true
+
     labels:
       team: gcf-team
 getUserByUid:
     handler: getUserByUid
     events:
       - http: true
+
     labels:
       team: gcf-team
