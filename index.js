@@ -7,5 +7,3 @@ exports.uploadBlogs = blogFunctions.uploadBlogs;
 exports.getTestById = testFunctions.getTests;
 exports.postTestResults = testFunctions.postTestResults;
 exports.postRegister = registerFunctions.postRegister;
-exports.getUserByUid = getuserFunctions.getUserByUid;
-
