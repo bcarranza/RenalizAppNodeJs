@@ -27,6 +27,12 @@ jobs:
           args: package --stage dev
         env:
           CREDENTIALS_PATH: /github/workspace/secrets/keyfile_dev.json
+      - name: Serverless Doctor
+        uses: serverless/github-action@master
+        with:
+          args: doctor
+        env:
+          CREDENTIALS_PATH: /github/workspace/secrets/keyfile_dev.json
       - name: Deploy GCP Cloud Function
         #if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
         uses: serverless/github-action@master
