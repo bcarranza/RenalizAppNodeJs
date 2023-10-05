@@ -59,7 +59,7 @@ functions:
       - http: true
     labels:
       team: gcf-team
-      getTestsByUid:
+  getTestsByUid:
     handler: getTestsByUid 
     events:
       - http: true
