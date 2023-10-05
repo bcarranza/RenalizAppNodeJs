@@ -59,3 +59,9 @@ functions:
       - http: true
     labels:
       team: gcf-team
+  getMentions:
+    handler: getMentions
+    events:
+      - http: true
+    labels:
+      team: gcf-team
