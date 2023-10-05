@@ -65,3 +65,9 @@ functions:
       - http: true
     labels:
       team: gfc-team
+  getTag:
+    handler: getTag
+    events:
+      - http: true
+    labels:
+      team: gfc-team
