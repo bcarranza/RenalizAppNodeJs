@@ -59,3 +59,9 @@ functions:
       - http: true
     labels:
       team: gcf-team
+  getAuthor:
+    handler: getAuthor
+    events:
+      - http: true
+    labels:
+      team: gfc-team
