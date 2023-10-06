@@ -65,3 +65,9 @@ functions:
       - http: true
     labels:
       team: gcf-team
+  getTestsByUid:
+    handler: getTestsByUid 
+    events:
+      - http: true
+    labels:
+      team: gcf-team
