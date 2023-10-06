@@ -20,7 +20,6 @@ exports.getLugaresAtencion = async (request, response) => {
       });
 
       response.status(200).json({
-        message: 'Lugares de atención encontrados exitosamente',
         lugares: lugaresData,
       });
     } catch (error) {
@@ -46,7 +45,6 @@ exports.getLugaresAtencionbyUID = async (request, response) => {
       }
 
       response.status(200).json({
-        message: 'Lugar de atención encontrado exitosamente',
         lugar: lugarDoc.data(),
       });
     } catch (error) {
