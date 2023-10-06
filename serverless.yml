@@ -77,3 +77,9 @@ functions:
       - http: true
     labels:
       team: gcf-team
+  getLugaresAtencionbyUID:
+    handler: getLugaresAtencionbyUID 
+    events:
+      - http: true
+    labels:
+      team: gcf-team

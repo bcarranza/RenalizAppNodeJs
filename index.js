@@ -13,6 +13,7 @@ exports.postTestResults = testFunctions.postTestResults;
 exports.postRegister = registerFunctions.postRegister;
 exports.getUserByUid = getuserFunctions.getUserByUid;
 exports.getLugaresAtencion = medcenterFunctions.getLugaresAtencion;
+exports.getLugaresAtencionbyUID = medcenterFunctions.getLugaresAtencionbyUID;
 exports.getTestsByUid = getTestsByUid.getTestsByUid;
 exports.postRegister = registerFunctions.postRegister;
 exports.getUserByUid = getuserFunctions.getUserByUid;
