@@ -8,16 +8,16 @@ exports.getUserByUid = async (request, response) => {
       const db = admin.firestore();
       const RegistroUsuariosCollection = db.collection('RegistroUsuarios');
 
-      const uid = request.params.uid; 
+      const { uid } = request.body;
 
       if (!uid) {
         return response.status(400).json({ message: 'El UID de usuario es obligatorio' });
       }
 
-              const userQuery = await RegistroUsuariosCollection.where('uid', '==', uid).get();
+              const userQuery = await RegistroUsuariosCollection.where('userId', '==', uid).get();
 
       if (userQuery.empty) {
-        return response.status(404).json({ message: 'Usuario no encontrado' });
+        return response.status(404).json({ message: `Usuario no encontrado + ${uid}` });
       }
 
    
