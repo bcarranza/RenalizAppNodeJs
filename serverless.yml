@@ -71,3 +71,9 @@ functions:
       - http: true
     labels:
       team: gfc-team
+  getBlogsBySearch:
+    handler: getBlogsBySearch
+    events:
+      - http: true
+    labels:
+      team: gfc-team

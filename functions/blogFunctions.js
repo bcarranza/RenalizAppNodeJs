@@ -19,8 +19,8 @@ exports.getAllBlogs = async (request, response) => {
   if (setCorsHeaders(response)) return;
 
   try {
-    let page = parseInt(request.page) || 1;
-    let perPage = parseInt(request.perPage) || 10;
+    let page = parseInt(request.body.page) || 1;
+    let perPage = parseInt(request.body.perPage) || 10;
 
     const snapshot = await admin
       .firestore()

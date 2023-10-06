@@ -4,6 +4,7 @@ const registerFunctions = require('./functions/registerFunctions')
 const getuserFunctions = require('./functions/getuserFunctions')
 const getAuthorFunctions= require('./functions/getAuthorFunctions')
 const getTagsFunctions= require('./functions/getTagsFunctions')
+const searchFunctions= require('./functions/searchFunctions')
 
 exports.getAllBlogs = blogFunctions.getAllBlogs;
 exports.uploadBlogs = blogFunctions.uploadBlogs;
@@ -13,3 +14,4 @@ exports.postRegister = registerFunctions.postRegister;
 exports.getUserByUid = getuserFunctions.getUserByUid;
 exports.getAuthor= getAuthorFunctions.getAuthor;
 exports.getTag = getTagsFunctions.getTag;
+exports.getBlogsBySearch=searchFunctions.getBlogsBySearch;
