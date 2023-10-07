@@ -13,7 +13,7 @@ exports.postRegister = async (request, response) => {
       // Validaciones para campos obligatorios
       if (!resultData.First_Name|| !resultData.Last_Name || !resultData.Birth_Date || !resultData.DPI
         || !resultData.Telephone_Number || !resultData.Address || !resultData.Department || !resultData.City) {
-        return response.status(400).json({ message: 'Nombre y número de teléfono son campos obligatorios' });
+        return response.status(400).json({ message: 'Completa los campos oblicatorios' });
       }
 
       const { uid, First_Name,
@@ -64,3 +64,4 @@ exports.postRegister = async (request, response) => {
     }
   });
 };
+
