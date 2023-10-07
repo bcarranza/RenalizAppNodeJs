@@ -59,6 +59,24 @@ functions:
       - http: true
     labels:
       team: gcf-team
+  getAuthor:
+    handler: getAuthor
+    events:
+      - http: true
+    labels:
+      team: gfc-team
+  getTag:
+    handler: getTag
+    events:
+      - http: true
+    labels:
+      team: gfc-team
+  getBlogsBySearch:
+    handler: getBlogsBySearch
+    events:
+      - http: true
+    labels:
+      team: gfc-team
   getMentions:
     handler: getMentions
     events:

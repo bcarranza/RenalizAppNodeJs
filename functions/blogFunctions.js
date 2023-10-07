@@ -25,6 +25,7 @@ exports.getAllBlogs = async (request, response) => {
     const snapshot = await admin
       .firestore()
       .collection("Blogs")
+      .orderBy("isStarred", "desc")
       .orderBy("publication_date", "desc")
       .offset((page - 1) * perPage)
       .limit(perPage)
