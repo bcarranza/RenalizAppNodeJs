@@ -1,4 +1,3 @@
-
 const admin = require('../database/firebase.js');
 
 const cors = require('cors');
@@ -9,24 +8,23 @@ exports.getMentions = async (request, response) => {
     try {
       const db = admin.firestore();
       const mentionsCollection = db.collection('Mentions');
-      const mentionsId = request.body.id;
-            if (!mentionsId) {
-                response.status(400).send('ID is required in the request body');
-                return;
-            }
 
-            const doc = await mentionsCollection.doc(mentionsId).get();
+      const querySnapshot = await mentionsCollection.get();
 
-            if (!doc.exists) {
-                response.status(404).send('Document not found');
-                return;
-            }
+      if (querySnapshot.empty) {
+          response.status(404).send('No documents found in the collection');
+          return;
+      }
 
-            response.status(200).json(doc.data());
-        } catch (error) {
-            console.error('Error fetching test data:', error);
-            response.status(500).send('Internal Server Error');
-        }
-    });
+      const mentions = [];
+      querySnapshot.forEach((doc) => {
+          mentions.push(doc.data());
+      });
+
+      response.status(200).json(mentions);
+    } catch (error) {
+      console.error('Error fetching mentions data:', error);
+      response.status(500).send('Internal Server Error');
+    }
+  });
 };
-
