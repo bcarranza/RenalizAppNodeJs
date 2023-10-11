@@ -107,5 +107,3 @@ functions:
       - http: true
     labels:
       team: gcf-team
-
-
