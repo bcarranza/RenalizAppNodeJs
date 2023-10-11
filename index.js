@@ -27,3 +27,5 @@ exports.getTag = getTagsFunctions.getTag;
 exports.getBlogsBySearch=searchFunctions.getBlogsBySearch;
 exports.getMentions = mentionstFunctions.getMentions;
 
+exports.postFeedback = Feedback.postFeedback;
+

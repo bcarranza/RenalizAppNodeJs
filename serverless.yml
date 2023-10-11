@@ -100,4 +100,12 @@ functions:
     events:
       - http: true
     labels:
+      team: gcf-team    
+  postFeedback:                  
+    handler: postFeedback
+    events:
+      - http: true
+    labels:
       team: gcf-team
+
+
