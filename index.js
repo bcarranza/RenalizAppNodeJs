@@ -8,6 +8,7 @@ const searchFunctions= require('./functions/searchFunctions')
 const mentionstFunctions = require('./functions/mentionsFunctions')
 const getTestsByUid = require('./functions/getTestByUidFunction')
 const medcenterFunctions = require('./functions/medcenterFunctions')
+const Feedback = require('./functions/feedbackFunctions');
 
 
 exports.getAllBlogs = blogFunctions.getAllBlogs;
@@ -26,4 +27,6 @@ exports.getAuthor= getAuthorFunctions.getAuthor;
 exports.getTag = getTagsFunctions.getTag;
 exports.getBlogsBySearch=searchFunctions.getBlogsBySearch;
 exports.getMentions = mentionstFunctions.getMentions;
+
+exports.postFeedback = Feedback.postFeedback;
 
