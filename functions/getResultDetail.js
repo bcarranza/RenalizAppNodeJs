@@ -3,12 +3,12 @@ const admin = require('../database/firebase.js');
 const cors = require('cors');
 const corsHandler = cors({ origin: true });
 
-exports.getMentions = async (request, response) => {
+exports.getDetailTest = async (request, response) => {
   corsHandler(request, response, async () => {
     try {
       const db = admin.firestore();
       const TestResultsCollection = db.collection('TestResults');
-      constTestResultsId = request.body.id;
+      const TestResultsId = request.body.id;
             if (!TestResultsId) {
                 response.status(400).send('ID is required in the request body');
                 return;
