@@ -71,7 +71,7 @@ exports.getTestsByUid = async (request, response) => {
 
                 // Formatear la cadena para este test
                 const formattedTest = `${score};${riskMessage};${riskDescription};${timestamp};${documentSnapshot.id}`;
-
+                
                 // Agregar la cadena formateada a la lista
                 formattedTests.push(formattedTest);
             });
