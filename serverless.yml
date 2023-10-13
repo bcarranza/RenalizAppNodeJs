@@ -107,3 +107,9 @@ functions:
       - http: true
     labels:
       team: gcf-team
+  getDetailTest:
+    handler: getDetailTest
+    events:
+      - http: true
+    labels:
+      team: gcf-team
