@@ -13,8 +13,6 @@ const getResultDetail = require('./functions/getResultDetail')
 const Feedback = require('./functions/feedbackFunctions');
 
 
-const Feedback = require('./functions/feedbackFunctions');
-
 
 
 exports.getAllBlogs = blogFunctions.getAllBlogs;
