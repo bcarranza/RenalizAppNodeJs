@@ -1,6 +1,7 @@
 const admin = require('../database/firebase.js');
 const cors = require('cors');
 const corsHandler = cors({ origin: true });
+const nodemailer = require('nodemailer');
 
 exports.postRegister = async (request, response) => {
   corsHandler(request, response, async () => {
@@ -30,7 +31,7 @@ exports.postRegister = async (request, response) => {
         Blood_Type,
         Civil_Status,
         Gender,
-} = resultData;
+      } = resultData;
 
       // Crear un documento en Firestore usando el UID del usuario como identificador
       const userDocRef = RegistroUsuariosCollection.doc(uid);
@@ -51,11 +52,28 @@ exports.postRegister = async (request, response) => {
          Blood_Type: Blood_Type || null,
          Civil_Status: Civil_Status|| null,
          Gender: Gender|| null,
-
       };
 
       // Establecer la información del usuario en el documento Firestore
       await userDocRef.set(userData);
+
+      
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'renalizapp@gmail.com',
+          pass: 'jefo bvze xrmm yvci'
+        }
+      });
+
+      const mailOptions = {
+        from: 'renalizapp@gmail.com',
+        to: Email,
+        subject: 'Bienvenido a RenalizApp',
+        text: `Hola ${First_Name},\n\n¡Bienvenido a RenalizApp! Esperamos que disfrutes de nuestra plataforma y que encuentres la ayuda que necesitas.\n\nSaludos,\nEl equipo de RenalizApp`
+      };
+
+      await transporter.sendMail(mailOptions);
 
       response.status(201).json({ message: 'Usuario registrado exitosamente', user: userData });
     } catch (error) {
@@ -64,4 +82,3 @@ exports.postRegister = async (request, response) => {
     }
   });
 };
-
