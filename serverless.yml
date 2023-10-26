@@ -29,6 +29,20 @@ functions:
     handler: uploadBlogs
     events:
       - http: true
+    labels:
+      team: gcf-team
+  postBlog :
+    handler: postBlog 
+    events:
+      - http: true
+    labels:
+      team: gcf-team
+    deleteBlog :
+    handler: deleteBlog
+    events:
+      - http: true
+    labels:
+      team: gcf-team
   getAllBlogs:
     handler: getAllBlogs
     events:
