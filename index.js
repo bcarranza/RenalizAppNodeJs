@@ -16,7 +16,7 @@ const Feedback = require('./functions/feedbackFunctions');
 
 
 exports.getAllBlogs = blogFunctions.getAllBlogs;
-exports.uploadBlogs = blogFunctions.uploadBlogs;
+exports.uploadBlogs = blogFunctions
 exports.getTestById = testFunctions.getTests;
 exports.postTestResults = testFunctions.postTestResults;
 exports.postRegister = registerFunctions.postRegister;

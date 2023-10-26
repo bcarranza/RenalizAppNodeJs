@@ -52,10 +52,25 @@ exports.uploadBlogs = async (req, res) => {
 
   try {
     const db = admin.firestore().collection("Blogs");
+    const newBlogData = {
+      author: req.body.author,
+      category: req.body.category,
+      cover_image: req.body.cover_image,
+      description: req.body.description,
+      images: req.body.images,
+      isStarred: req.body.isStarred,
+      publication_date: req.body.publication_date,
+      tags: req.body.tags,
+      title: req.body.title
+    };
 
-    await db.add();
+    const docRef = await db.add(newBlogData);
 
-    res.status(200).send("Success");
+    res.status(200).json({
+      message: "Successfully created blog",
+      blogId: docRef.id 
+      
+    });
   } catch (error) {
     console.error("Error uploading blog:", error);
     res.status(500).send("Internal Server Error");
