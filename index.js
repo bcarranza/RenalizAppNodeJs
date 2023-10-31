@@ -9,6 +9,7 @@ const mentionstFunctions = require('./functions/mentionsFunctions')
 const getTestsByUid = require('./functions/getTestByUidFunction')
 const medcenterFunctions = require('./functions/medcenterFunctions')
 const getResultDetail = require('./functions/getResultDetail')
+const crudBlog = require('./functions/crudBlog')
 
 const Feedback = require('./functions/feedbackFunctions');
 
@@ -17,6 +18,8 @@ const Feedback = require('./functions/feedbackFunctions');
 
 exports.getAllBlogs = blogFunctions.getAllBlogs;
 exports.uploadBlogs = blogFunctions.uploadBlogs;
+exports.postBlog = crudBlog.postBlog;
+exports.deleteBlog = crudBlog.deleteBlog
 exports.getTestById = testFunctions.getTests;
 exports.postTestResults = testFunctions.postTestResults;
 exports.postRegister = registerFunctions.postRegister;
