@@ -37,7 +37,7 @@ functions:
       - http: true
     labels:
       team: gcf-team
-    deleteBlog :
+  deleteBlog :
     handler: deleteBlog
     events:
       - http: true
