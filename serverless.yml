@@ -113,3 +113,9 @@ functions:
       - http: true
     labels:
       team: gcf-team
+  updateAvatar:
+    handler: updateAvatar
+    events:
+      - http: true
+    labels:
+      team: gcf-team

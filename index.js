@@ -12,6 +12,8 @@ const getResultDetail = require('./functions/getResultDetail')
 
 const Feedback = require('./functions/feedbackFunctions');
 
+const avatarFunctions = require('./functions/avatarFunctions')
+
 
 
 
@@ -35,4 +37,6 @@ exports.getBlogsBySearch=searchFunctions.getBlogsBySearch;
 exports.getMentions = mentionstFunctions.getMentions;
 
 exports.postFeedback = Feedback.postFeedback;
+
+exports.updateAvatar = avatarFunctions.updateAvatar;
 
